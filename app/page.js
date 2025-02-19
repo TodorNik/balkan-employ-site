@@ -18,15 +18,12 @@ export default function Home() {
         />
         <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
           <li className="mb-2">
-            Get started by editing{" "}
             <Jobpost 
             />
             <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.js
+      
             </code>
-            .
           </li>
-          <li>Save and see your changes instantly.</li>
         </ol>
 
         <div className="flex gap-4 items-center flex-col sm:flex-row">
@@ -86,22 +83,38 @@ export default function Home() {
           />
           Examples
         </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+
+        
       </footer>
     </div>
   );
+}
+
+// pages/index.js
+//import JobPost from "../components/jobpost";
+
+export default function Home({ jobPosts }) {
+  return (
+    <div>
+      <h1>Job Posts</h1>
+      {jobPosts.map((job) => (
+        <Jobpost key={job.id} title={job.title} description={job.description} />
+      ))}
+    </div>
+  );
+}
+
+// Example using getStaticProps to fetch data at build time
+export async function getStaticProps() {
+  // Here you can fetch data from an API or database.
+  // For demonstration, we're using a static array.
+  const jobPosts = [
+    { id: 1, title: "Frontend Developer", description: "Develop awesome UIs with React." },
+    { id: 2, title: "Backend Developer", description: "Build robust APIs with Node.js." },
+    { id: 3, title: "Fullstack Developer", description: "Work across the entire stack." },
+  ];
+
+  return {
+    props: { jobPosts },
+  };
 }

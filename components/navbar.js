@@ -11,6 +11,8 @@ export default function Navbar() {
                 <a href="#" className="hover:text-gray-300">Contact</a>
               </div>
             </div>
+
+            
             <div className="md:hidden">
               <button className="text-gray-400 hover:text-white">
                 <span className="sr-only">Open menu</span>
