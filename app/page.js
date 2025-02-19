@@ -105,7 +105,7 @@ export default function Home({ jobPosts }) {
 }
 
 // Example using getStaticProps to fetch data at build time
-export async function getStaticProps() {
+export async function getInitialProps() {
   // Here you can fetch data from an API or database.
   // For demonstration, we're using a static array.
   const jobPosts = [
