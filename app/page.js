@@ -84,7 +84,7 @@ export default function Home() {
           Examples
         </a>
 
-        
+      <Home/>
       </footer>
     </div>
   );
