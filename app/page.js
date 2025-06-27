@@ -93,6 +93,8 @@ import Jobpost from "@/components/jobpost";
 // pages/index.js
 //import JobPost from "../components/jobpost";
 */
+
+//test
 export default function Home({ jobPosts }) {
   return (
     <div>
