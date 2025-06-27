@@ -2,8 +2,7 @@ import Image from "next/image";
 import Navbar from '@/components/navbar'; 
 import Jobpost from "@/components/jobpost";
 
-/*export default function Home() {
-  return (
+/*
     
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <Navbar />
@@ -93,9 +92,13 @@ import Jobpost from "@/components/jobpost";
 // pages/index.js
 //import JobPost from "../components/jobpost";
 */
-
 //test
-export default function Home({ jobPosts }) {
+export default function Home() {
+  const jobPosts = [
+    { id: 1, title: "Frontend Developer", description: "Develop awesome UIs with React." },
+    { id: 2, title: "Backend Developer", description: "Build robust APIs with Node.js." },
+    { id: 3, title: "Fullstack Developer", description: "Work across the entire stack." },
+  ];
   return (
     <div>
       <h1>Job Posts</h1>
@@ -105,18 +108,5 @@ export default function Home({ jobPosts }) {
     </div>
   );
 }
-
 // Example using getStaticProps to fetch data at build time
-export async function getInitialProps() {
-  // Here you can fetch data from an API or database.
-  // For demonstration, we're using a static array.
-  const jobPosts = [
-    { id: 1, title: "Frontend Developer", description: "Develop awesome UIs with React." },
-    { id: 2, title: "Backend Developer", description: "Build robust APIs with Node.js." },
-    { id: 3, title: "Fullstack Developer", description: "Work across the entire stack." },
-  ];
 
-  return {
-    props: { jobPosts },
-  };
-}
