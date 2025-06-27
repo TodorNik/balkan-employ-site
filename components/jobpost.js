@@ -1,11 +1,11 @@
-export default function Jobpost() {
+export default function Jobpost({id, title, description}) {
     return (
         <div>
             <button>Sacuvaj</button>
             <button>Ukloni</button>
-            <p>Korisnicko Ime</p>
-            <p>Satnica/Dnevnica</p>&nbsp;<p>Profesija</p>&nbsp;<p>Iskustvo</p>
-            <p>Uopsteni opis posla koji ima maksimum broj karaktera</p>
+            <p>{id}</p>
+            <p>Satnica/Dnevnica</p>&nbsp;<p>{title}</p>&nbsp;<p>Iskustvo</p>
+            <p>{description}</p>
 
         </div>
 
