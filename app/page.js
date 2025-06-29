@@ -2,6 +2,7 @@ import Image from "next/image";
 import Navbar from '@/components/navbar'; 
 import Jobpost from "@/components/jobpost";
 
+<Navbar></Navbar>
 export default function Home() {
   const jobPosts = [
     { id: 1, title: "Frontend Developer", description: "Develop awesome UIs with React." },
