@@ -8,7 +8,7 @@ export default function Home() {
     { id: 2, title: "Backend Developer", description: "Build robust APIs with Node.js." },
     { id: 3, title: "Fullstack Developer", description: "Work across the entire stack." },
   ];
-
+//test
   return (
     <div>
       <h1>Job Posts</h1>
