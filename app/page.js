@@ -2,7 +2,6 @@ import Image from "next/image";
 import Navbar from '@/components/navbar'; 
 import Jobpost from "@/components/jobpost";
 
-<Navbar></Navbar>
 export default function Home() {
   const jobPosts = [
     { id: 1, title: "Frontend Developer", description: "Develop awesome UIs with React." },
@@ -12,6 +11,7 @@ export default function Home() {
 //test
   return (
     <div>
+      <Navbar></Navbar>
       <h1>Job Posts</h1>
       {Array.isArray(jobPosts) && jobPosts.map((job) => (
         <Jobpost key={job.id} id={job.id} title={job.title} description={job.description} />
