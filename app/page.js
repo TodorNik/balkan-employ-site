@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Sidebar from '@/components/sidebar';
 import Navbar from '@/components/navbar'; 
 import Jobpost from "@/components/jobpost";
 
@@ -12,6 +13,7 @@ export default function Home() {
   return (
     <div>
       <Navbar></Navbar>
+      <Sidebar></Sidebar>
       <h1>Job Posts</h1>
       {Array.isArray(jobPosts) && jobPosts.map((job) => (
         <Jobpost key={job.id} id={job.id} title={job.title} description={job.description} />
