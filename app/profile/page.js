@@ -6,10 +6,8 @@ import Jobpost from "@/components/jobpost";
 export default function Home() {
 return (
 <div>
-
 <Navbar></Navbar>
 <Sidebar></Sidebar>
-a</div>
-
+    d</div>
 );
 }

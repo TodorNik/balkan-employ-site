@@ -6,9 +6,11 @@ export default function Navbar() {
             <div className="flex items-center">
               <div className="text-xl font-bold">MyLogo</div>
               <div className="hidden md:flex space-x-4 ml-10">
-                <a href="#" className="hover:text-gray-300">Home</a>
-                <a href="#" className="hover:text-gray-300">About</a>
-                <a href="#" className="hover:text-gray-300">Contact</a>
+                <a href="@/page.js" className="hover:text-gray-300">Home</a>
+                <a href="@/about/page.js" className="hover:text-gray-300">About</a>
+                <a href="@/contact/page.js" className="hover:text-gray-300">Contact</a>
+                <a href="#" className="hover:text-gray-300">Profile</a>
+                <a href="#" className="hover:text-gray-300">Logout</a>        
               </div>
             </div>
 
