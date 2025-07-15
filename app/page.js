@@ -11,7 +11,7 @@ export default function Home() {
   ];
 //test
   return (
-    <div>
+    <div class="main">
       <Navbar></Navbar>
       <Sidebar></Sidebar>
       <h1>Job Posts</h1>
