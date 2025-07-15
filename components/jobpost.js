@@ -1,3 +1,5 @@
+import "@/globals.css";
+
 export default function Jobpost({id, title, description}) {
     return (
         <div>
