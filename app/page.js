@@ -14,7 +14,7 @@ export default function Home() {
     <div class="main">
       <Navbar></Navbar>
       <Sidebar></Sidebar>
-      <h1>Job Posts</h1>
+      <h1 style="grid-column: 2">Job Posts</h1>
       {Array.isArray(jobPosts) && jobPosts.map((job) => (
         <Jobpost key={job.id} id={job.id} title={job.title} description={job.description} />
       ))}
