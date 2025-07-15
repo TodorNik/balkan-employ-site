@@ -34,3 +34,14 @@
   grid-column: 1 / -1;
 }
 
+.maincomponent
+{
+  grid-column: 2;
+
+}
+
+.complist{
+  background-color: aqua;
+  box-shadow: 2px;
+  box-sizing: border-box;
+}

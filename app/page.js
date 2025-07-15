@@ -15,10 +15,10 @@ export default function Home() {
       <Navbar></Navbar>
       <Sidebar></Sidebar>
       <h1>Job Posts</h1>
-      <ul>
+      <ul class="maincomponent">
   {Array.isArray(jobPosts) &&
     jobPosts.map((job) => (
-      <li key={job.id}>
+      <li class ="complist" key={job.id}>
         <Jobpost
           id={job.id}
           title={job.title}
