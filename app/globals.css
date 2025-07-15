@@ -43,4 +43,7 @@
   grid-area: main;
   background-color: #ffffff;
   padding: 2rem;
+  display: grid;
+  grid-template-rows: auto 1fr; /* row 1 = height of content, row 2 = fills remaining */
+  min-height: 100vh;       
 }
