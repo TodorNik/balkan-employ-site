@@ -14,7 +14,6 @@ export default function Home() {
     <div class="main">
       <Navbar></Navbar>
       <Sidebar></Sidebar>
-      <h1>Job Posts</h1>
       <ul class="maincomponent">
   {Array.isArray(jobPosts) &&
     jobPosts.map((job) => (

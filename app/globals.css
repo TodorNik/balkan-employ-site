@@ -31,7 +31,7 @@
 
 .navbar{
   background-color: indigo;
-  grid-column: 1 / -1;
+  grid-column: 1 / 2;
 }
 
 .maincomponent
