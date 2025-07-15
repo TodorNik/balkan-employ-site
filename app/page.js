@@ -15,11 +15,18 @@ export default function Home() {
       <Navbar></Navbar>
       <Sidebar></Sidebar>
       <h1>Job Posts</h1>
-      <ul style = {{grid-column: 2}}>
-      {Array.isArray(jobPosts) && jobPosts.map((job) => (
-        <Jobpost key={job.id} id={job.id} title={job.title} description={job.description} />
-      ))}
-      </ul>
+      <ul>
+  {Array.isArray(jobPosts) &&
+    jobPosts.map((job) => (
+      <li key={job.id}>
+        <Jobpost
+          id={job.id}
+          title={job.title}
+          description={job.description}
+        />
+      </li>
+    ))}
+  </ul>
     </div>
   );
 }
