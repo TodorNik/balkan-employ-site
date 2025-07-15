@@ -11,11 +11,11 @@ export default function Home() {
   ];
 //test
   return (
-    <div class="main">
+    <div class="layout">
       <Navbar></Navbar>
       <Sidebar></Sidebar>
-      <ul class="maincomponent">
-  {Array.isArray(jobPosts) &&
+      <ul class="main">
+      {Array.isArray(jobPosts) &&
     jobPosts.map((job) => (
       <li class ="complist" key={job.id}>
         <Jobpost
