@@ -1,6 +1,6 @@
 import "@/app/globals.css";
 
-export default function Jobpost({id, title, description}) {
+export default function Jobpost({id, title, description, className}) {
     return (
         <div className={className}>
             <button>Sacuvaj</button>

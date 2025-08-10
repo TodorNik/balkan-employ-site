@@ -20,7 +20,7 @@ export default function Home() {
       <ul className="main grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 list-none p-0 m-0">
       {Array.isArray(jobPosts) &&
     jobPosts.map((job) => (
-      <li class ="complist" key={job.id}>
+      <li key={job.id}>
         <Jobpost
           id={job.id}
           title={job.title}
