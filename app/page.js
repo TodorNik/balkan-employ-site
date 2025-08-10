@@ -11,7 +11,7 @@ export default function Home() {
   ];
 //test
   return (
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+    <div class="layout">
       <Navbar></Navbar>
       <Sidebar></Sidebar>
       <ul className="main grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 list-none p-0 m-0">
