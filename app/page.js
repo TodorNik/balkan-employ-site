@@ -10,6 +10,7 @@ export default function Home() {
     { id: 3, title: "Fullstack Developer", description: "Work across the entire stack." },
     { id: 4, title: "Backend Developer", description: "Build robust APIs with Node.js." },
     { id: 5, title: "Fullstack Developer", description: "Work across the entire stack." },
+    { id: 6, title: "Fullstack Developer", description: "Work across the entire stack." },
   ];
 //test
   return (

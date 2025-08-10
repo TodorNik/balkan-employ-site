@@ -2,7 +2,7 @@ import "@/app/globals.css";
 
 export default function Jobpost({id, title, description}) {
     return (
-        <div class="#">
+        <div className={className}>
             <button>Sacuvaj</button>
             <button>Ukloni</button>
             <p>{id}</p>
