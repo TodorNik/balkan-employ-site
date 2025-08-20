@@ -6,7 +6,10 @@ import Jobpost from "@/components/jobpost";
 export default function Home() {
 
 return (
-<div>c</div>
+
+<div><Navbar></Navbar>
+<Sidebar></Sidebar>
+something about the person</div>
 
 );
 }
