@@ -1,20 +1,12 @@
-import { supabase } from "@/lib/supabaseClient";
+import { createClient } from "@supabase/supabase-js";
 
-export async function POST(req) {
-  try {
-    const { email, password } = await req.json();
+export function getSupabaseClient() {
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
-    const { data, error } = await supabase.auth.signInWithPassword({
-      email,
-      password,
-    });
-
-    if (error) {
-      return new Response(JSON.stringify({ error: error.message }), { status: 400 });
-    }
-
-    return new Response(JSON.stringify({ user: data.user, session: data.session }), { status: 200 });
-  } catch (err) {
-    return new Response(JSON.stringify({ error: err.message }), { status: 500 });
+  if (!supabaseUrl || !supabaseAnonKey) {
+    throw new Error("Supabase environment variables are missing");
   }
+
+  return createClient(supabaseUrl, supabaseAnonKey);
 }
