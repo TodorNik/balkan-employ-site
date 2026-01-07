@@ -1,16 +1,32 @@
-import Image from "next/image";
-import Sidebar from '@/components/sidebar';
-import Navbar from '@/components/navbar'; 
-import Jobpost from "@/components/jobpost";
+// app/account/page.js
+import { cookies } from 'next/headers';
+import { redirect } from 'next/navigation';
+import { decrypt } from '@/lib/session';
+import LogoutButton from './LogoutButton';
+import Navbar from '@/components/UI/navbar';
 
-export default function Home() {
+export default function AccountPage() {
+  const cookieStore = cookies();
+  const sessionCookie = cookieStore.get('session')?.value;
 
+  if (!sessionCookie) {
+    redirect('/login');
+  }
 
-return (
-<div>
-<Navbar></Navbar>
-<Sidebar></Sidebar>
-    b</div>
+  let session;
+  try {
+    session = decrypt(sessionCookie);
+  } catch {
+    redirect('/login');
+  }
 
-);
+  return (
+    <main>
+    <Navbar></Navbar>
+    <h1>Account</h1>
+    <p>Email: {session.user.email}</p>
+    <p>User ID: {session.user.id}</p>
+    <LogoutButton></LogoutButton>
+    </main>
+  );
 }
