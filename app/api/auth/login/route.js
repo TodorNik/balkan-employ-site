@@ -1,5 +1,5 @@
 // app/api/login/route.js
-import { getSupabaseClient } from '../../../../lib/supabaseClient';
+import { getSupabaseClient } from '../../../../lib/supabase';
 
 export async function POST(req) {
   const { email, password } = await req.json();
