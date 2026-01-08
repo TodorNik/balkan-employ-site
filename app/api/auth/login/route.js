@@ -24,5 +24,12 @@ export async function POST(req) {
   return new Response(JSON.stringify({ message: 'Logged in successfully' }), {
     status: 200,
     headers: { 'Content-Type': 'application/json' },
+
+  
   });
+
+  return new Response(
+    JSON.stringify({ success: true }),
+    { status: 200 }
+    );
 }
