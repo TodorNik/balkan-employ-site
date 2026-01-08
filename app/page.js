@@ -2,7 +2,8 @@ import Image from "next/image";
 import Sidebar from '@/components/UI/sidebar';
 import Navbar from '@/components/UI/navbar'; 
 import Jobpost from "@/components/Basic/jobpost";
-import LoginForm from "@/components/Auth/LoginForm"
+import LoginForm from "@/components/Auth/LoginForm";
+import Link from 'next/link';
 export default function Home() {
   const jobPosts = [
     { id: 1, title: "Frontend Developer", description: "Develop awesome UIs with React." },
@@ -32,6 +33,10 @@ export default function Home() {
   
     ))}
   </ul>
+  
+      <Link href="/login">Login</Link>
+      <br />
+      <Link href="/register">Register</Link>
     </div>
   );
 }
