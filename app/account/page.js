@@ -3,7 +3,7 @@ import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 import { decrypt } from '@/lib/session';
 import LogoutButton from './LogoutButton';
-import Navbar from '@/components/UI/navbar';
+import Navbar from '@/components/navbar';
 
 export default function AccountPage() {
   const cookieStore = cookies();

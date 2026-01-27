@@ -1,7 +1,7 @@
 import Image from "next/image";
-import Sidebar from '@/components/UI/sidebar';
-import Navbar from '@/components/UI/navbar'; 
-import Jobpost from "@/components/Basic/jobpost";
+import Sidebar from '@/components/sidebar';
+import Navbar from '@/components/navbar'; 
+import Jobpost from "@/components/jobpost";
 import LoginForm from "@/components/Auth/LoginForm";
 import Link from 'next/link';
 export default function Home() {
@@ -15,7 +15,7 @@ export default function Home() {
   ];
 //test
   return (
-    <div class="layout">
+    <div className="layout">
       <Navbar></Navbar>
       <Sidebar></Sidebar>
       <LoginForm></LoginForm>
