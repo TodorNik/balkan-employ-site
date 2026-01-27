@@ -1,4 +1,4 @@
-import { getSupabaseClient } from '../../../lib/supabaseClient';
+import { getSupabaseClient } from '@/lib/supabaseClient';
 
 export async function POST(req) {
   const { email, password } = await req.json();
