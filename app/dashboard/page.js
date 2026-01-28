@@ -1,6 +1,6 @@
 // app/dashboard/page.js
 import { cookies } from 'next/headers';
-import { decrypt } from '@/lib/session';
+import { decrypt } from '@/app/lib/session';
 
 export default async function DashboardPage() {
   const cookieStore = cookies();

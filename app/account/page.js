@@ -1,7 +1,7 @@
 // app/account/page.js
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
-import { decrypt } from '@/lib/session';
+import { decrypt } from '@/app/lib/session';
 import LogoutButton from './LogoutButton';
 import Navbar from '@/components/navbar';
 

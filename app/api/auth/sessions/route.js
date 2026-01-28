@@ -1,6 +1,6 @@
 // app/api/session/route.js
 import { serialize } from 'cookie';
-import { encrypt } from '@/lib/session';
+import { encrypt } from '@/app/lib/session';
 
 export async function POST(req) {
   const sessionData = await req.json();
