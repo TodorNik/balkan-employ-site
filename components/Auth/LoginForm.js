@@ -12,27 +12,27 @@ export default function LoginForm() {
   const [loading, setLoading] = useState(false);
 
   async function handleSubmit(e) {
-    e.preventDefault();
-    setLoading(true);
-    setError(null);
+  e.preventDefault();
+  setLoading(true);
+  setError(null);
 
-    const res = await fetch('/api/login', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, password }),
-    });
+  const res = await fetch('/api/auth/login', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email, password }),
+  });
 
-    const data = await res.json();
+  const text = await res.text();
+  const data = text ? JSON.parse(text) : {};
 
-    if (!res.ok) {
-      setError(data.error || 'Login failed');
-      setLoading(false);
-      return;
-    }
-
-    // Redirect after successful login
-    router.push('/account');
+  if (!res.ok) {
+    setError(data.error || 'Login failed');
+    setLoading(false);
+    return;
   }
+
+  router.push('/dashboard');
+}
 
   return (
     <form onSubmit={handleSubmit}>
