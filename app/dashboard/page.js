@@ -1,27 +1,12 @@
 // app/dashboard/page.js
-import { cookies } from 'next/headers';
-import { decrypt } from '@/lib/session';
+import { redirect } from 'next/navigation';
+import { getSupabaseServer } from '@/lib/supabaseServer';
 
-export default async function DashboardPage() {
-  const cookieStore = cookies();
-  const sessionCookie = cookieStore.get('session')?.value;
+export default async function Dashboard() {
+  const supabase = getSupabaseServer();
+  const { data: { user } } = await supabase.auth.getUser();
 
-  if (!sessionCookie) {
-    // Redirect to login if no cookie
-    return redirect('/login');
-  }
+  if (!user) redirect('/login');
 
-  let session;
-  try {
-    session = decrypt(sessionCookie);
-  } catch (err) {
-    return redirect('/login'); // invalid cookie
-  }
-
-  return (
-    <div>
-      <h1>Welcome, {session.user.email}</h1>
-      <p>Your Supabase user ID is {session.user.id}</p>
-    </div>
-  );
+  return <div>Welcome {user.email}</div>;
 }

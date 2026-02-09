@@ -1,23 +1,18 @@
-import { getSupabaseClient } from '@/lib/supabase';
+// app/api/auth/register/route.js
+import { getSupabaseServer } from '@/lib/supabaseServer';
 
 export async function POST(req) {
   const { email, password } = await req.json();
-  const supabase = getSupabaseClient();
+  const supabase = getSupabaseServer();
 
-  const { data, error } = await supabase.auth.signUp({
+  const { error } = await supabase.auth.signUp({
     email,
     password,
   });
 
   if (error) {
-    return new Response(JSON.stringify({ error: error.message }), {
-      status: 400,
-      headers: { 'Content-Type': 'application/json' },
-    });
+    return Response.json({ error: error.message }, { status: 400 });
   }
 
-  return new Response(JSON.stringify({ message: 'Registered successfully' }), {
-    status: 200,
-    headers: { 'Content-Type': 'application/json' },
-  });
+  return Response.json({ success: true });
 }
