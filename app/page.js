@@ -17,7 +17,7 @@ export default async function Home() {
   if (error) {
     return <div>Failed to load jobs: {error.message}</div>;
   }
-
+//
   return (
     <div className="min-h-screen bg-gray-50">
       <Navbar />
