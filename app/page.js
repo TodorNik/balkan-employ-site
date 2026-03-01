@@ -28,9 +28,9 @@ export default async function Home() {
         <main className="flex-1 p-6">
           <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 list-none p-0 m-0">
             {jobPosts.map((job) => (
-              <li key={job.id}>
+              <li key={job.user_id}>
                 <Jobpost
-                  id={job.id}
+                  id={job.user_id}
                   title={job.title}
                   description={job.description}
                   className="border border-gray-300 p-4 bg-white shadow-sm rounded-lg"
