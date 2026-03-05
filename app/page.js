@@ -1,4 +1,4 @@
-import RegisterForm from '@/components/Auth/register/RegisterForm';
+import RegisterForm from '@components/Auth/register/RegisterForm';
 import Navbar from '@/components/navbar';
 import Sidebar from '@/components/sidebar';
 import Jobpost from '@/components/jobpost';
