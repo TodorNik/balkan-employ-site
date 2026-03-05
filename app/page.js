@@ -1,3 +1,4 @@
+import RegisterForm from '@/components/Auth/RegisterForm';
 import Navbar from '@/components/navbar';
 import Sidebar from '@/components/sidebar';
 import Jobpost from '@/components/jobpost';
@@ -40,6 +41,7 @@ export default async function Home() {
           </ul>
         </main>
       </div>
+                <RegisterForm />
     </div>
   );
 }
