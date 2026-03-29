@@ -44,7 +44,7 @@ export default function Navbar() {
           <Link href="/about" className="block hover:text-gray-300">About</Link>
           <Link href="/contact" className="block hover:text-gray-300">Contact</Link>
           <Link href="/profile" className="block hover:text-gray-300">Profile</Link>
-          <Link href="api/logout" className="block hover:text-gray-300">Logout</Link>
+          <Link href="api/auth/logout" className="block hover:text-gray-300">Logout</Link>
         </div>
       )}
     </nav>
