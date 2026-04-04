@@ -1,16 +1,27 @@
-// app/api/logout/route.js
-import { serialize } from 'cookie';
+import { createServerClient } from '@supabase/ssr';
+import { cookies } from 'next/headers';
 
 export async function POST() {
-  const cookie = serialize('session', '', {
-    httpOnly: true,
-    secure: process.env.NODE_ENV === 'production',
-    maxAge: 0,
-    path: '/',
-  });
+  const cookieStore = cookies();
 
-  return new Response(JSON.stringify({ message: 'Logged out' }), {
-    status: 200,
-    headers: { 'Set-Cookie': cookie, 'Content-Type': 'application/json' },
-  });
+  const supabase = createServerClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
+    {
+      cookies: {
+        getAll() {
+          return cookieStore.getAll();
+        },
+        setAll(cookiesToSet) {
+          cookiesToSet.forEach(({ name, value, options }) => {
+            cookieStore.set(name, value, options);
+          });
+        },
+      },
+    }
+  );
+
+  await supabase.auth.signOut(); // ✅ THIS is real logout
+
+  return Response.json({ success: true });
 }
