@@ -2,6 +2,7 @@ import { redirect } from 'next/navigation';
 import Navbar from '@/components/navbar';
 import Sidebar from '@/components/sidebar';
 import { getSupabaseServer } from '@/lib/supabaseServer';
+import ProfileForm from './ProfileForm';
 
 export const dynamic = 'force-dynamic';
 
@@ -41,6 +42,7 @@ export default async function Profile() {
         <p className="mt-4">
           <strong>About me:</strong> {profile.about_me}
         </p>
+          <ProfileForm profile={profile} />
       </main>
     </div>
   );
