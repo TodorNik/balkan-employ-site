@@ -4,7 +4,10 @@ import { useState } from 'react';
 import { createBrowserClient } from '@supabase/ssr';
 
 export default function ProfileForm({ profile }) {
-  const supabase = createClientComponentClient();
+  const supabase = createBrowserClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+  );
 
   const [name, setName] = useState(profile?.name || '');
   const [experience, setExperience] = useState(profile?.experience || '');
@@ -18,6 +21,11 @@ export default function ProfileForm({ profile }) {
       data: { user },
     } = await supabase.auth.getUser();
 
+    if (!user) {
+      setMessage('Not logged in');
+      return;
+    }
+
     const { error } = await supabase
       .from('profiles')
       .update({
@@ -25,7 +33,7 @@ export default function ProfileForm({ profile }) {
         experience,
         about_me: about,
       })
-      .eq('id', user.id); // 🔒 must match your RLS
+      .eq('id', user.id); // 🔒 matches your RLS
 
     if (error) {
       setMessage(error.message);
