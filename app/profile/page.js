@@ -27,6 +27,12 @@ export default async function Profile() {
     return <div>Error loading profile: {error.message}</div>;
   }
 
+  const { data: job } = await supabase
+    .from('job') // ⚠️ make sure this matches your table name
+    .select('*')
+    .eq('user_id', user.id)
+    .maybeSingle();
+
   return (
     <div>
       <Navbar />
@@ -42,7 +48,7 @@ export default async function Profile() {
         <p className="mt-4">
           <strong>About me:</strong> {profile.about_me}
         </p>
-          <ProfileForm profile={profile} />
+          <ProfileForm profile={profile} job={job} />
       </main>
     </div>
   );

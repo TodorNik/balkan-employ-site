@@ -13,7 +13,7 @@ export default async function Home() {
   const { data: jobPosts, error } = await supabase
     .from('jobs')
     .select('*')
-    .order('id', { ascending: false });
+    .order('created_at', { ascending: false });
 
   if (error) {
     return <div>Failed to load jobs: {error.message}</div>;
