@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { createBrowserClient } from '@supabase/ssr';
 
-export default function ProfileForm({ profile, job }) {
+export default function ProfileForm({ profile, jobs }) {
   const supabase = createBrowserClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
@@ -16,8 +16,8 @@ export default function ProfileForm({ profile, job }) {
   const [message, setMessage] = useState('');
 
   // ✅ Job state
-  const [title, setTitle] = useState(job?.title || '');
-  const [description, setDescription] = useState(job?.description || '');
+  const [title, setTitle] = useState(jobs?.title || '');
+  const [description, setDescription] = useState(jobs?.description || '');
 
   // ✅ Profile submit (you already had this)
   async function handleSubmit(e) {
@@ -54,9 +54,9 @@ export default function ProfileForm({ profile, job }) {
 
     let error;
 
-    if (job) {
+    if (jobs) {
       ({ error } = await supabase
-        .from('job')
+        .from('jobs')
         .update({
           title,
           description,
@@ -64,7 +64,7 @@ export default function ProfileForm({ profile, job }) {
         .eq('user_id', user.id));
     } else {
       ({ error } = await supabase
-        .from('job')
+        .from('jobs')
         .insert({
           user_id: user.id,
           title,
@@ -72,7 +72,7 @@ export default function ProfileForm({ profile, job }) {
         }));
     }
 
-    setMessage(error ? error.message : job ? 'Job updated!' : 'Job created!');
+    setMessage(error ? error.message : jobs ? 'Job updated!' : 'Job created!');
   }
 
   // ✅ EVERYTHING UI must be inside return
@@ -111,7 +111,7 @@ export default function ProfileForm({ profile, job }) {
       <hr className="my-6" />
 
       <h2 className="text-xl font-bold">
-        {job ? 'Edit Your Job' : 'Create Job'}
+        {jobs ? 'Edit Your Job' : 'Create Job'}
       </h2>
 
       <form onSubmit={handleJobSubmit} className="space-y-4 mt-4">
@@ -130,7 +130,7 @@ export default function ProfileForm({ profile, job }) {
         />
 
         <button className="bg-green-600 text-white px-4 py-2 rounded">
-          {job ? 'Update Job' : 'Create Job'}
+          {jobs ? 'Update Job' : 'Create Job'}
         </button>
       </form>
 
