@@ -72,7 +72,8 @@ export default function ProfileForm({ profile, jobs }) {
         }));
     }
 
-    setMessage(error ? error.message : jobs ? 'Job updated!' : 'Job created!');
+    setMessage(job ? 'Job updated!' : 'Job created!');
+    window.location.reload();
   }
 
   // ✅ EVERYTHING UI must be inside return
